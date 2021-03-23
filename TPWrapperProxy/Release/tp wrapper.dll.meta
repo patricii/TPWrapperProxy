@@ -1,0 +1,215 @@
+Assembly TP Wrapper, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=SHA1, flags=None
+Assembly System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=SHA1, flags=None
+Class TPWrapper.LogDataAcquisition: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double recipeDuration : Public
+    TPWrapper.LogParameters.InitParameters initParameters : Public
+    TPWrapper.LogParameters.StartRecipeParameters startRecipeParameters : Public
+    TPWrapper.LogParameters.EndRecipeParameters endRecipeParameters : Public
+    System.DateTime startRecipeDateTime : Public
+    System.DateTime endRecipeDateTime : Public
+    System.Collections.Generic.List`1[TPWrapper.LogParameters.EvalTestParameters] evalTestParameters : Public
+    System.Collections.Generic.List`1[System.DateTime] evalTestDateTime : Public
+    System.Collections.Generic.List`1[System.Double] testDuration : Public
+    System.Collections.Generic.Dictionary`2[System.String,System.DateTime] InitialDateTimeBlocks : Public
+    System.Collections.Generic.Dictionary`2[System.String,System.DateTime] FinalDateTimeBlocks : Public
+  Methods:
+    StartNewTimeBlock(String, String&(Out)): PrivateScope, Public, HideBySig
+    StopTimeBlock(String, String&(Out), Double&(Out)): PrivateScope, Public, HideBySig
+    Init(InitParameters, String&(Out)): PrivateScope, Public, HideBySig
+    StartRecipe(StartRecipeParameters, String&(Out)): PrivateScope, Public, HideBySig
+    EvalTest(EvalTestParameters, String&(Out)): PrivateScope, Public, HideBySig
+    EndRecipe(EndRecipeParameters, String&(Out)): PrivateScope, Public, HideBySig
+Class TPWrapper.LogFileGeneration.FileGeneration: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(TPWrapper.LogDataAcquisition): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SaveAndMoveFile(InitParameters, String, List`1): PrivateScope, Public, HideBySig
+    GenerateLogResult(): PrivateScope, Public, HideBySig
+    AddTestHttpPostRequest(InitParameters, List`1): PrivateScope, Public, HideBySig
+Struct TPWrapper.LogParameters.TestResult: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TPWrapper.LogParameters.TestResult Pass = 0 : Public, Static, Literal, HasDefault
+    TPWrapper.LogParameters.TestResult Fail = 1 : Public, Static, Literal, HasDefault
+    TPWrapper.LogParameters.TestResult Undetermined = 2 : Public, Static, Literal, HasDefault
+Struct TPWrapper.LogParameters.LogFileFormat: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    TPWrapper.LogParameters.LogFileFormat MQS = 0 : Public, Static, Literal, HasDefault
+    TPWrapper.LogParameters.LogFileFormat HTTP_POST = 1 : Public, Static, Literal, HasDefault
+    TPWrapper.LogParameters.LogFileFormat MQS_AND_HTTP_POST = 2 : Public, Static, Literal, HasDefault
+    TPWrapper.LogParameters.LogFileFormat UNDETERMINED = 3 : Public, Static, Literal, HasDefault
+Class TPWrapper.LogParameters.InitParameters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String processCode 'get set' : 
+    System.String stationCode 'get set' : 
+    System.String fixtureId 'get set' : 
+    System.String softwareVersion 'get set' : 
+    System.String softwareReleaseVersion 'get set' : 
+    System.String computerMacAddress 'get set' : 
+    System.String siteCode 'get set' : 
+    System.String feedPath 'get set' : 
+    System.String headerVersion 'get set' : 
+    System.String testHeaderVersion 'get set' : 
+    System.String temporaryPath 'get set' : 
+    System.String serverUri 'get set' : 
+    TPWrapper.LogParameters.LogFileFormat logFormat 'get set' : 
+    TPWrapper.LogParameters.InitParameters Empty 'get ' : 
+  Methods:
+    get_processCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_processCode(String): PrivateScope, Public, HideBySig, SpecialName
+    get_stationCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_stationCode(String): PrivateScope, Public, HideBySig, SpecialName
+    get_fixtureId(): PrivateScope, Public, HideBySig, SpecialName
+    set_fixtureId(String): PrivateScope, Public, HideBySig, SpecialName
+    get_softwareVersion(): PrivateScope, Public, HideBySig, SpecialName
+    set_softwareVersion(String): PrivateScope, Public, HideBySig, SpecialName
+    get_softwareReleaseVersion(): PrivateScope, Public, HideBySig, SpecialName
+    set_softwareReleaseVersion(String): PrivateScope, Public, HideBySig, SpecialName
+    get_computerMacAddress(): PrivateScope, Public, HideBySig, SpecialName
+    set_computerMacAddress(String): PrivateScope, Public, HideBySig, SpecialName
+    get_siteCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_siteCode(String): PrivateScope, Public, HideBySig, SpecialName
+    get_feedPath(): PrivateScope, Public, HideBySig, SpecialName
+    set_feedPath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_headerVersion(): PrivateScope, Public, HideBySig, SpecialName
+    set_headerVersion(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testHeaderVersion(): PrivateScope, Public, HideBySig, SpecialName
+    set_testHeaderVersion(String): PrivateScope, Public, HideBySig, SpecialName
+    get_temporaryPath(): PrivateScope, Public, HideBySig, SpecialName
+    set_temporaryPath(String): PrivateScope, Public, HideBySig, SpecialName
+    get_serverUri(): PrivateScope, Public, HideBySig, SpecialName
+    set_serverUri(String): PrivateScope, Public, HideBySig, SpecialName
+    get_logFormat(): PrivateScope, Public, HideBySig, SpecialName
+    set_logFormat(LogFileFormat): PrivateScope, Public, HideBySig, SpecialName
+    get_Empty(): PrivateScope, Public, HideBySig, SpecialName
+Class TPWrapper.LogParameters.StartRecipeParameters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String technology 'get set' : 
+    System.String family 'get set' : 
+    System.String motorolaModel 'get set' : 
+    System.String shopOrder 'get set' : 
+    System.String equipmentId 'get set' : 
+    System.String softwareId 'get set' : 
+    System.String recipeName 'get set' : 
+    System.String XcvrNumber 'get set' : 
+    TPWrapper.LogParameters.StartRecipeParameters Empty 'get ' : 
+  Methods:
+    get_technology(): PrivateScope, Public, HideBySig, SpecialName
+    set_technology(String): PrivateScope, Public, HideBySig, SpecialName
+    get_family(): PrivateScope, Public, HideBySig, SpecialName
+    set_family(String): PrivateScope, Public, HideBySig, SpecialName
+    get_motorolaModel(): PrivateScope, Public, HideBySig, SpecialName
+    set_motorolaModel(String): PrivateScope, Public, HideBySig, SpecialName
+    get_shopOrder(): PrivateScope, Public, HideBySig, SpecialName
+    set_shopOrder(String): PrivateScope, Public, HideBySig, SpecialName
+    get_equipmentId(): PrivateScope, Public, HideBySig, SpecialName
+    set_equipmentId(String): PrivateScope, Public, HideBySig, SpecialName
+    get_softwareId(): PrivateScope, Public, HideBySig, SpecialName
+    set_softwareId(String): PrivateScope, Public, HideBySig, SpecialName
+    get_recipeName(): PrivateScope, Public, HideBySig, SpecialName
+    set_recipeName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_XcvrNumber(): PrivateScope, Public, HideBySig, SpecialName
+    set_XcvrNumber(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Empty(): PrivateScope, Public, HideBySig, SpecialName
+Class TPWrapper.LogParameters.EvalTestParameters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String testFailCode 'get set' : 
+    System.String testErrorMessage 'get set' : 
+    System.String testName 'get set' : 
+    System.String testCode 'get set' : 
+    System.String testSpecName 'get set' : 
+    System.String testGroup 'get set' : 
+    System.String testSubGroup 'get set' : 
+    System.String testTextValue 'get set' : 
+    Int32 retestFlag 'get set' : 
+    Double highLimit 'get set' : 
+    Double lowLimit 'get set' : 
+    TPWrapper.LogParameters.TestResult testResult 'get set' : 
+    Int32 attempts 'get set' : 
+    Double testValue 'get set' : 
+    TPWrapper.LogParameters.EvalTestParameters Empty 'get ' : 
+  Methods:
+    get_testFailCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_testFailCode(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testErrorMessage(): PrivateScope, Public, HideBySig, SpecialName
+    set_testErrorMessage(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testName(): PrivateScope, Public, HideBySig, SpecialName
+    set_testName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testCode(): PrivateScope, Public, HideBySig, SpecialName
+    set_testCode(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testSpecName(): PrivateScope, Public, HideBySig, SpecialName
+    set_testSpecName(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testGroup(): PrivateScope, Public, HideBySig, SpecialName
+    set_testGroup(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testSubGroup(): PrivateScope, Public, HideBySig, SpecialName
+    set_testSubGroup(String): PrivateScope, Public, HideBySig, SpecialName
+    get_testTextValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_testTextValue(String): PrivateScope, Public, HideBySig, SpecialName
+    get_retestFlag(): PrivateScope, Public, HideBySig, SpecialName
+    set_retestFlag(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_highLimit(): PrivateScope, Public, HideBySig, SpecialName
+    set_highLimit(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_lowLimit(): PrivateScope, Public, HideBySig, SpecialName
+    set_lowLimit(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_testResult(): PrivateScope, Public, HideBySig, SpecialName
+    set_testResult(TestResult): PrivateScope, Public, HideBySig, SpecialName
+    get_attempts(): PrivateScope, Public, HideBySig, SpecialName
+    set_attempts(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_testValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_testValue(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Empty(): PrivateScope, Public, HideBySig, SpecialName
+Class TPWrapper.LogParameters.EndRecipeParameters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String trackId 'get set' : 
+    TPWrapper.LogParameters.TestResult masterTestResult 'get set' : 
+    TPWrapper.LogParameters.EndRecipeParameters Empty 'get ' : 
+  Methods:
+    get_trackId(): PrivateScope, Public, HideBySig, SpecialName
+    set_trackId(String): PrivateScope, Public, HideBySig, SpecialName
+    get_masterTestResult(): PrivateScope, Public, HideBySig, SpecialName
+    set_masterTestResult(TestResult): PrivateScope, Public, HideBySig, SpecialName
+    get_Empty(): PrivateScope, Public, HideBySig, SpecialName
+Class TPWrapper.GpsAcquisition: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    GetParametersValuesFromStringResponse(String): PrivateScope, Public, Static, HideBySig
+    GetParameterValueFromStringResponse(String, String): PrivateScope, Public, Static, HideBySig
+    GetParameterValueFromStringResponse(String, String, String&(Out)): PrivateScope, Public, Static, HideBySig
+    Request(String, String, String, String, String, String, String&(Out), String&(Out)): PrivateScope, Public, Static, HideBySig
+    Request(RequestParameters, String&(Out), String&(Out)): PrivateScope, Public, Static, HideBySig
+Class TPWrapper.CheckStatusParameters.RequestParameters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String URI : Public
+    System.String unitTrackId : Public
+    System.String stationType : Public
+    System.String stationCode : Public
+    System.String testMachineId : Public
+    System.String orderNumber : Public
+Class TPWrapper.CheckStatusParameters.ResponseParameters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String command : Public
+    System.String unitTrackId : Public
+    System.String permission : Public
+    System.String errorMessage : Public
+    System.String orderNumber : Public
+    System.String boardKitNumber : Public
+    System.String endoPartNumber : Public
+    System.String transceiverNumber : Public
+    System.String salesModel : Public
+    System.String fvcNumber : Public
+    System.String facSvn : Public
+    System.String cfcSvn : Public
+    System.String batteryPartNumber : Public

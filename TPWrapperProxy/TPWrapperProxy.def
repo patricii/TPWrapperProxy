@@ -1,0 +1,8 @@
+LIBRARY	"TPWrapperProxy"
+EXPORTS
+	InitLogAcquisition
+	StartRecipeLogAcquisition
+	EvalTestLogAcquisition
+	EndRecipeLogAcquisition
+	GetParameterValueFromStringResponse
+	Request

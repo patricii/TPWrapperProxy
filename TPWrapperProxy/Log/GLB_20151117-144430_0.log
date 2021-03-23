@@ -1,0 +1,5 @@
+[0000001] [14:44:30:165708] [Tid0x00001290] [info] -->[C1] flashtool_startup #./interface/flashtoolex_api.cpp (line:11)
+[0000002] [14:44:30:244712] [Tid0x00001290] [info] <--[C1] flashtool_startup
+[0000003] [14:44:30:244712] [Tid0x00001290] [info] -->[C2] flashtool_set_log_level #./interface/flashtoolex_api.cpp (line:24)
+[0000004] [14:44:30:244712] [Tid0x00001290] [info] set global log level: 1 ##trace[0] ,debug[1], info[2], warning[3], err[4], fatal[5]
+[0000005] [14:44:30:245712] [Tid0x00001290] [info] <--[C2] flashtool_set_log_level
